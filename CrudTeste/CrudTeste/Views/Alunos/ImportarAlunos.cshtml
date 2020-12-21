@@ -1,0 +1,16 @@
+﻿@{
+    Layout = "_Layout";
+    var title = "Importar Alunos";
+    ViewData["Title"] = title;
+}
+
+<h2>
+        @title
+</h2>
+
+<form asp-action="UploadAlunos" method="post"  enctype="multipart/form-data">
+    <input type="file" name="file" />
+    <br /><br />
+    <button type="submit" class="btn btn-primary">Importar Alunos</button>
+</form>
+

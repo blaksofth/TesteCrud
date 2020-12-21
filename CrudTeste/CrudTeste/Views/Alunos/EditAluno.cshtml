@@ -1,0 +1,38 @@
+﻿@model Alunos
+@{
+    Layout = "_Layout";
+    var title = "Editar Aluno";
+    ViewData["Title"] = title;
+}
+<style>
+    .input-validation-error {
+        border-color: red;
+    }
+</style>
+<h2>@title</h2>
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<form class="m-1 p-1" method="post">
+    <div class="form-group">
+        <label asp-for="id"></label>
+        <input asp-for="id" type="text" readonly class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="nome"></label>
+        <input asp-for="nome" type="text" class="form-control" />
+        <span asp-validation-for="nome" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="mensalidade"></label>
+        <input asp-for="mensalidade" type="text" class="form-control" />
+        <span asp-validation-for="mensalidade" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="vencimento"></label>
+        <input asp-for="vencimento" type="text" class="form-control" />
+        <span asp-validation-for="vencimento" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Gravar</button>
+</form>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Professores>
+
+@{
+    Layout = "_Layout";
+    var title = "Lista de professores";
+    ViewData["Title"] = title;
+}
+
+<h2>@title</h2>
+<h3><a asp-action="CreateProfessor" class="btn btn-sm btn-secondary">Novo</a></h3>
+<table class="table table-bordered table-sm table-striped">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Nome</th>
+            <th>Especialidades</th>
+            <th>Editar</th>
+            <th>Alunos</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model == null)
+        {
+            <tr>
+                <td colspan="7" class="text-center">No Model Data</td>
+            </tr>
+        }
+        else
+        {
+            @foreach (var p in Model)
+            {
+                <tr>
+                    <td>@p.id</td>
+                    <td>@p.nome</td>
+                    <td>@p.especialidade</td>
+                    <td><a asp-action="EditProfessor" asp-route-id="@p.id">Editar</a></td>
+                    <td><a asp-controller="Alunos" asp-route-id="@p.id">Alunos</a></td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
